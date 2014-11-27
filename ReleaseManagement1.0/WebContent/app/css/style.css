@@ -1,0 +1,28 @@
+@CHARSET "ISO-8859-1";
+
+body {margin: 0px; padding: 0px; width: 100%; height: 100%; font-family: 'Segoe UI',calibri,sans-serif; background: url(bg.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+h1 {text-shadow: 1px 1px 2px #999; font-variant: small-caps;}
+.header {height: 50px; width: 100%; background: linear-gradient(#444, #111); box-shadow: 0px 0px 10px #111; color: #eee; padding: 15px 20px; font-variant: small-caps;}
+.loginBox {height:570px; background-color: white; padding: 30px; margin-top: 20px; box-shadow: inset 2px 2px 10px #999; border: 1px solid #999; border-radius: 10px}
+.contentBox {min-height:570px; background-color: white; padding: 30px; margin-top: 20px; box-shadow: inset 2px 2px 10px #999; border: 1px solid #999; border-radius: 10px; transition: all 1s}
+.starter {background: linear-gradient(#ddd, #d9534f, #ddd)}
+.dull {color: #999}
+.screens {width:100%; position: absolute;}
+.dullest {color: #555; font-size: 11px}
+.relative {position: relative;}
+.header_button {float: right; margin-top: -14px; width: 52px; overflow: hidden; transition: all 0.3s}
+.header_button:HOVER {transition: all 0.3s; width: 132px;}
+.alignCenter {text-align: center}
+fieldset.scheduler-border {
+	border: 1px groove #ddd !important;
+	padding: 0 1.4em 1.4em 1.4em !important;
+	margin: 0 0 1.5em 0 !important;
+	background-color: rgb(250, 250, 250);
+	border-radius: 5px;
+}
+
+legend.scheduler-border {
+	width: inherit; /* Or auto */
+	padding: 0 10px; /* To give a bit of padding on the left and right */
+	border-bottom: none;
+}
