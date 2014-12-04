@@ -1,0 +1,10 @@
+$(document).ready(function(){
+	$("#box1").show();
+	$("#box2").hide();
+	$("#link").hide();
+	$("#startButton").click(function(){
+		$("#box1").hide();
+		$("#box2").show();
+		$("#link").fadeIn(400);
+	});
+});

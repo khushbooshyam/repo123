@@ -1,0 +1,130 @@
+<div class="container-fluid" data-ng-controller="ManageReleaseController">
+	<div class="row">
+		<div class="col-xs-4 col-md-4"></div>
+		<div class="col-xs-4 col-md-4 text-center">
+			<h3>
+				New <small>Iteration</small>
+			</h3>
+			<hr>
+		</div>
+		<div class="col-xs-4 col-md-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<!-- -------------------------your code should be here-------------------------- -->
+			<form class="form-horizontal" data-role="form" name="iterationForm" data-ng-submit="addIteration(newiteration)" novalidate method="POST">
+				<div class="form-group" data-ng-class="{ 'has-error' : iterationForm.title.$invalid && !iterationForm.title.$pristine }">
+					<label for="title" class="col-sm-2 control-label">Title *</label>
+					<div class="col-sm-10">
+						<input type="text" name="title"
+						class="form-control" data-ng-model="newiteration.title"
+						required data-ng-pattern="/^[a-zA-Z][a-zA-Z0-9\s]*$/" data-ng-minlength="5"
+						data-ng-maxlength="20" placeholder="Title [required]">
+						<p data-ng-show="iterationForm.title.$invalid && !iterationForm.title.$pristine"
+							class="alert alert-danger">Title is required.</p>
+						<p data-ng-show="iterationForm.title.$error.pattern" class="alert alert-danger">Must
+							start with a letter, and contain letters numbers only.</p>
+						<p data-ng-show="iterationForm.title.$error.minlength"
+							class="alert alert-danger">Title is too short.</p>
+						<p data-ng-show="iterationForm.title.$error.maxlength"
+							class="help-block">Title is too long.</p>
+					</div>
+					
+				</div>
+				<div class="form-group" data-ng-class="{ 'has-error' : iterationForm.description.$invalid && !iterationForm.description.$pristine }">
+					<label for="description" class="col-sm-2 control-label">Description *</label>
+					<div class="col-sm-10">
+						<textarea name="description" class="form-control"
+						data-ng-model="newiteration.description"
+						data-ng-pattern="/^[a-zA-Z][a-zA-Z0-9\s]*$/" data-ng-minlength="20"
+						data-ng-maxlength="100" required placeholder="Description [required]"></textarea>
+					<p data-ng-show="iterationForm.description.$invalid && !iterationForm.description.$pristine"
+						class="alert alert-danger">Description is required.</p>
+					<p data-ng-show="iterationForm.description.$error.pattern"
+						class="help-block">Must start with a letter, and contain
+						letters numbers only.</p>
+					<p data-ng-show="iterationForm.description.$error.minlength"
+						class="alert alert-danger">Description is too short.</p>
+					<p data-ng-show="iterationForm.description.$error.maxlength"
+						class="alert alert-danger">Description is too long.</p>
+					</div>
+				</div>
+				<div class="form-group" data-ng-class="{ 'has-error' : iterationForm.startdate.$invalid && !iterationForm.startdate.$pristine }">
+					<label for="startdate" class="col-sm-2 control-label">Start Date *</label>
+					<div class="col-sm-10">
+						<input type="date" name="startdate"
+						id="startDate" class="form-control"
+						data-ng-model="newiteration.startDate" required>
+					<p data-ng-show="iterationForm.startdate.$invalid && !iterationForm.startdate.$pristine"
+						class="alert alert-danger">Start Date is required.</p>
+					</div>
+				</div>
+				<div class="form-group" data-ng-class="{ 'has-error' : iterationForm.enddate.$invalid && !iterationForm.enddate.$pristine }">
+					<label for="enddate" class="col-sm-2 control-label">End Date *</label>
+					<div class="col-sm-10">
+						<input type="date" name="enddate"
+						id="endDate" class="form-control"
+						data-ng-model="newiteration.endDate" required>
+					<p data-ng-show="iterationForm.enddate.$invalid && !iterationForm.enddate.$pristine"
+						class="alert alert-danger">End Date is required.</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="type" class="col-sm-2 control-label">Type</label>
+					<div class="col-sm-10">
+						<input type="text" name="type"
+						class="form-control" data-ng-model="newiteration.type"
+						id="inputType" list="type" placeholder="Type">
+						<datalist id="type">
+							<option>Dev</option>
+							<option>QA</option>
+							<option>Planning</option>
+							<option>Release</option>
+							<option>Regression</option>
+						</datalist>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="items" class="col-sm-2 control-label">Items</label>
+					<div class="col-sm-10">
+						<input type="text" name="items"
+						class="form-control" data-ng-model="newiteration.items"
+						required data-ng-pattern="/^[a-zA-Z][a-zA-Z0-9\s]*$/" data-ng-minlength="5"
+						data-ng-maxlength="20" id="inputItems" list="items" placeholder="Items">
+						<datalist id="items">
+							<option>Requirement1</option>
+							<option>Requirement2</option>
+						</datalist>
+						<p data-ng-show="iterationForm.items.$error.pattern" class="alert alert-danger">Must
+							start with a letter, and contain letters numbers only.</p>
+						<p data-ng-show="iterationForm.items.$error.minlength"
+							class="alert alert-danger">Item is too short.</p>
+						<p data-ng-show="iterationForm.items.$error.maxlength"
+							class="alert alert-danger">Items are too long.</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="status" class="col-sm-2 control-label">Status</label>
+					<div class="col-sm-10">
+						<input type="text" name="status"
+						class="form-control" data-ng-model="newiteration.status"
+						id="inputStatus" list="status" placeholder="Status">
+						<datalist id="status">
+							<option>Planned</option>
+							<option>Working</option>
+							<option>Completed</option>
+						</datalist>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default" data-ng-click="resetForm()"
+							data-ng-disabled="!isIterationChanged()">Reset</button>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+			</form>
+			<!-- --------------------------------------------------------------------------- -->
+		</div>
+	</div>
+</div>

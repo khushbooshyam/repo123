@@ -1,0 +1,186 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-4 col-md-4"></div>
+		<div class="col-xs-4 col-md-4 text-center">
+			<h3>
+				New <small>Release</small>
+			</h3>
+			<hr>
+		</div>
+		<div class="col-xs-4 col-md-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<!-- -------------------------your code should be here-------------------------- -->
+			<form class="form-horizontal" data-role="form" name="newreleaseForm" data-ng-submit="submitForm(newreleaseForm.$valid)" novalidate>
+				<div class="form-group" data-ng-class="{ 'has-error' : newreleaseForm.title.$invalid && !newreleaseForm.title.$pristine }">
+					<label for="title" class="col-sm-2 control-label">Title *</label>
+					<div class="col-sm-10">
+						<input type="text" name="title"
+						class="form-control" data-ng-model="newrelease.title"
+						required data-ng-pattern="/^[a-zA-Z][a-zA-Z0-9\s]*$/" data-ng-minlength="5"
+						data-ng-maxlength="20" placeholder="Title [required]">
+						<p data-ng-show="newreleaseForm.title.$invalid && !newreleaseForm.title.$pristine"
+							class="alert alert-danger">Title is required.</p>
+						<p data-ng-show="newreleaseForm.title.$error.pattern" class="alert alert-danger">Must
+							start with a letter, and contain letters numbers only.</p>
+						<p data-ng-show="newreleaseForm.title.$error.minlength"
+							class="alert alert-danger">Title is too short.</p>
+						<p data-ng-show="newreleaseForm.title.$error.maxlength"
+							class="help-block">Title is too long.</p>
+					</div>
+					
+				</div>
+				<div class="form-group" data-ng-class="{ 'has-error' : newreleaseForm.description.$invalid && !newreleaseForm.description.$pristine }">
+					<label for="description" class="col-sm-2 control-label">Description *</label>
+					<div class="col-sm-10">
+						<textarea name="description" class="form-control"
+						data-ng-model="newrelease.description"
+						data-ng-pattern="/^[a-zA-Z][a-zA-Z0-9\s]*$/" data-ng-minlength="20"
+						data-ng-maxlength="100" required placeholder="Description [required]"></textarea>
+					<p data-ng-show="newreleaseForm.description.$invalid && !newreleaseForm.description.$pristine"
+						class="alert alert-danger">Description is required.</p>
+					<p data-ng-show="newreleaseForm.description.$error.pattern"
+						class="help-block">Must start with a letter, and contain
+						letters numbers only.</p>
+					<p data-ng-show="newreleaseForm.description.$error.minlength"
+						class="alert alert-danger">Description is too short.</p>
+					<p data-ng-show="newreleaseForm.description.$error.maxlength"
+						class="alert alert-danger">Description is too long.</p>
+					</div>
+				</div>
+				<div class="form-group" data-ng-class="{ 'has-error' : newreleaseForm.startdate.$invalid && !newreleaseForm.startdate.$pristine }">
+					<label for="startdate" class="col-sm-2 control-label">Start Date *</label>
+					<div class="col-sm-10">
+						<input type="date" name="startdate"
+						id="startDate" class="form-control"
+						data-ng-model="newrelease.startDate" required>
+					<p data-ng-show="newreleaseForm.startdate.$invalid && !newreleaseForm.startdate.$pristine"
+						class="alert alert-danger">Start Date is required.</p>
+					</div>
+				</div>
+				<div class="form-group" data-ng-class="{ 'has-error' : newreleaseForm.enddate.$invalid && !newreleaseForm.enddate.$pristine }">
+					<label for="enddate" class="col-sm-2 control-label">Planned Date *</label>
+					<div class="col-sm-10">
+						<input type="date" name="enddate"
+						id="plannedDate" class="form-control"
+						data-ng-model="newrelease.plannedDate" required>
+					<p data-ng-show="newreleaseForm.enddate.$invalid && !newreleaseForm.enddate.$pristine"
+						class="alert alert-danger">Planned Date is required.</p>
+					</div>
+				</div>
+				<div class="form-group" data-ng-class="{ 'has-error' : newreleaseForm.enddate.$invalid && !newreleaseForm.enddate.$pristine }">
+					<label for="enddate" class="col-sm-2 control-label">Release Date *</label>
+					<div class="col-sm-10">
+						<input type="date" name="enddate"
+						id="releaseDate" class="form-control"
+						data-ng-model="newrelease.releaseDate" required>
+					<p data-ng-show="newreleaseForm.enddate.$invalid && !newreleaseForm.enddate.$pristine"
+						class="alert alert-danger">Release Date is required.</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="type" class="col-sm-2 control-label">Type</label>
+					<div class="col-sm-10">
+						<input type="text" name="type"
+						class="form-control" data-ng-model="newrelease.type"
+						id="inputType" list="type" placeholder="Type">
+						<datalist id="type">
+							<option>Dev</option>
+							<option>QA</option>
+							<option>Planning</option>
+							<option>Release</option>
+							<option>Regression</option>
+						</datalist>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="type" class="col-sm-2 control-label">To</label>
+					<div class="col-sm-10">
+						<input type="text" name="type"
+						class="form-control" data-ng-model="newrelease.too"
+						id="inputType" list="to" placeholder="To">
+						<datalist id="to">
+							<option>Dev Test</option>
+							<option>QA Test</option>
+							<option>Stage</option>
+							<option>Production</option>
+						</datalist>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="items" class="col-sm-2 control-label">Items</label>
+					<div class="col-sm-10">
+						<input type="text" name="items"
+						class="form-control" data-ng-model="newrelease.items"
+						required data-ng-pattern="/^[a-zA-Z][a-zA-Z0-9\s]*$/" data-ng-minlength="5"
+						data-ng-maxlength="20" id="inputItems" list="items" placeholder="Items">
+						<datalist id="items">
+							<option>Requirement1</option>
+							<option>Requirement2</option>
+						</datalist>
+						<p data-ng-show="newreleaseForm.items.$error.pattern" class="alert alert-danger">Must
+							start with a letter, and contain letters numbers only.</p>
+						<p data-ng-show="newreleaseForm.items.$error.minlength"
+							class="alert alert-danger">Item is too short.</p>
+						<p data-ng-show="newreleaseForm.items.$error.maxlength"
+							class="alert alert-danger">Items are too long.</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="status" class="col-sm-2 control-label">Status</label>
+					<div class="col-sm-10">
+						<input type="text" name="status"
+						class="form-control" data-ng-model="newrelease.status"
+						id="inputStatus" list="status" placeholder="Status">
+						<datalist id="status">
+							<option>Planned</option>
+							<option>Working</option>
+							<option>Completed</option>
+						</datalist>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="manager" class="col-sm-2 control-label">Manager</label>
+					<div class="col-sm-10">
+						<input type="text" name="manager"
+						class="form-control" data-ng-model="newrelease.manager"
+						required data-ng-pattern="/^[a-zA-Z][a-zA-z0-9\s]*$/" data-ng-minlength="5"
+						data-ng-maxlength="20" id="inputItems" list="manager" placeholder="Manager">
+						<datalist id="manager">
+							<option>Dev PM</option>
+							<option>Release Manager</option>
+							<option selected>Dev PM</option>
+						</datalist>
+						<p data-ng-show="newreleaseForm.manager.$error.pattern"
+							class="alert alert-danger">Must start with a letter, and contain
+							letters numbers only.</p>
+						<p data-ng-show="newreleaseForm.manager.$error.minlength"
+							class="alert alert-danger">Manager name is too short.</p>
+						<p data-ng-show="newreleaseForm.manager.$error.maxlength"
+							class="alert alert-danger">Manager name is too long.</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="version" class="col-sm-2 control-label">Version</label>
+					<div class="col-sm-10">
+						<input type="text" name="version" placeholder="Version"
+							data-ng-pattern="/^[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}$/"
+							class="form-control" data-ng-model="newrelease.version"
+							id="inputType" list="version">
+						<p data-ng-show="newreleaseForm.version.$error.pattern"
+							class="alert alert-danger">invalid version format follow 10.10.10.10</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default" data-ng-click="resetForm()"
+							data-ng-disabled="!isReleaseChanged()">Reset</button>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+			</form>
+			<!-- --------------------------------------------------------------------------- -->
+		</div>
+	</div>
+</div>

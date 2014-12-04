@@ -1,0 +1,80 @@
+<div class="row">
+	<div class="col-xs-4 col-md-4"></div>
+	<div class="col-xs-4 col-md-4 text-center">
+		<h3>
+			All <small>Releases</small>
+		</h3>
+		<hr>
+	</div>
+	<div class="col-xs-4 col-md-4"></div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+		<!-- -------------------------your code should be here-------------------------- -->
+		<div style="overflow: auto; width: 100%">
+		<table class="table table-striped table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<!-- <th>Description</th> -->
+					<th>Start Date</th>
+					<!-- <th>Planned Date</th> -->
+					<th>Release Date</th>
+					<th>To</th>
+					<!-- <th>Items</th> -->
+					<th>Type</th>
+					<th>Status</th>
+					<th>Manager</th>
+					<th>Version</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="release in releases">
+					<td style="word-wrap: break-word">{{ release.title }}</td>
+					<!-- <td style="word-wrap: break-word">{{ release.description |
+						uppercase }}</td> -->
+					<td style="word-wrap: break-word">{{ release.startDate |
+						date:'dd/MM/yyyy' }}</td>
+					<!-- <td style="word-wrap: break-word">{{ release.plannedDate |
+						date:'dd/MM/yyyy'}}</td> -->
+					<td style="word-wrap: break-word">{{ release.releaseDate |
+						date:'dd/MM/yyyy'}}</td>
+					<td style="word-wrap: break-word">{{ release.too | uppercase
+						}}</td>
+					<!-- <td style="word-wrap: break-word">{{ release.items | uppercase
+						}}</td> -->
+					<td style="word-wrap: break-word">{{ release.type | uppercase
+						}}</td>
+					<td style="word-wrap: break-word">{{ release.status |
+						uppercase }}</td>
+
+					<td style="word-wrap: break-word">{{ release.manager |
+						uppercase }}</td>
+					<td style="word-wrap: break-word">{{ release.version}}</td>
+					<td><a class="btn btn-primary btn-xs" href="#EditRelease"
+						data-ng-click="edit(release.relId)">Edit</a></td>
+					<td><a class="btn btn-danger btn-xs" href="#ListRelease"
+						data-ng-click="deleteRelease(release.relId)" onclick="return deleteRelease()">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<!-- --------------------------------------------------------------------------- -->
+	</div>
+	<div class="col-xs-1 col-md-1"></div>
+</div>
+<div style="width: 100%; overflow: hidden;">
+	<div data-ng-show="testingresult1" style="width: 100%; margin: 0 auto;">
+		{{ releases }}</div>
+</div>
+<script type="text/javascript">
+	function deleteRelease() {
+		var x = window.confirm("Are you really want to delete this entry?");
+		if (x == true) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+</script>

@@ -1,0 +1,57 @@
+ <div class="row">
+	<div class="col-xs-4 col-md-4"></div>
+	<div class="col-xs-4 col-md-4 text-center">
+		<h3>
+			All <small>Iterations</small>
+		</h3>
+		<hr>
+	</div>
+	<div class="col-xs-4 col-md-4"></div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+		<!-- -------------------------your code should be here-------------------------- -->
+		<div style="overflow: auto; width: 100%">
+		<table class="table table-striped table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<!-- <th>Description</th> -->
+					<th>Start Date</th>
+					<th>End Date</th>
+					<!-- <th>Items</th> -->
+					<th>Type</th>
+					<th>Status</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="iteration in iterations">
+					<td style="word-wrap: break-word">{{ iteration.title }}</td>
+					<!-- <td style="word-wrap: break-word">{{ release.description |
+						uppercase }}</td> -->
+					<td style="word-wrap: break-word">{{ iteration.startDate |
+						date:'dd/MM/yyyy' }}</td>
+					<td style="word-wrap: break-word">{{ iteration.endDate |
+						date:'dd/MM/yyyy'}}</td>
+					<!-- <td style="word-wrap: break-word">{{ release.items | uppercase
+						}}</td> -->
+					<td style="word-wrap: break-word">{{ iteration.type | uppercase
+						}}</td>
+					<td style="word-wrap: break-word">{{ iteration.status |
+						uppercase }}</td>
+					<td><a class="btn btn-primary btn-xs" href="#EditIteration" data-ng-click="edit(iteration.iteId)">Edit</a></td>
+					<td><a class="btn btn-danger btn-xs" href="#ListIteration" data-ng-click="deleteIteration(iteration.iteId)">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<!-- --------------------------------------------------------------------------- -->
+	</div>
+	<div class="col-xs-1 col-md-1"></div>
+</div>
+<div style="width: 100%; overflow: hidden;">
+<div data-ng-show="testingresult" style="width:100%; margin:0 auto;">
+ {{ iterations }}
+</div> 
+</div> 
